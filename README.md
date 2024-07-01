@@ -2,6 +2,12 @@
 
 This repo provides a brief introduction to Kubernetes, from basic concepts and architecure, to CLI commands and deployment examples. Some information used for building this guide was taken from the offical [Kubernetes Documentation](https://kubernetes.io.docs) and from [Bogdan Stashchuk's Youtube Course on Kubernetes](https://www.youtube.com/watch?v=d6WC5n9G_sM).
 
+To follow the full guide, the following dependencies should be installed:
+
+- [Docker](https://docs.docker.com/manuals/)
+- [Minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download)
+- [kubectl](https://kubernetes.io/docs/tasks/tools/)
+
 ## Overview
 
 According to the official documentation, Kubernetes "is a portable, extensible, open source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation". TL;DR: it's a container orchestration system that provides you a platform for running distributed systems in a resilient way. It supports deployment patterns, handles scaling and failover for your application, and much more. Amongst many things, Kubernetes allows:
@@ -29,7 +35,31 @@ The control plane manages the worker nodes and the pods in the cluster. In produ
 - kube-api-server - provides a “Create-Read-Update-Delete” (CRUD) interface over a RESTFul API. All the other components of the Kubernetes system communicate through this entity. It provides with updates to the rest of entities in the control sub-system
 - scheduler (kube-scheduler) - decides about pod allocation into cluster nodes, by means of updating pod definitions in API Server
 - controller manager (kube-controller-manager) - forces convergence towards the defined-desired state of the system, by watching resources status and updating those resources through the kube-api-server. Hosts multiple controllers:
-    - Replication Manager and ReplicaSet Controllers - assure the number of pod replicas defined along the cluster
+    - Replication Manager and Replica Set Controllers - assure the number of pod replicas defined along the cluster
     - Service Controller, Node Controller, Endpoint Controller, Namespace Controller, Job Controller...
 - cloud-controller-manager - enables the link of the cluster into the cloud provider's API, and separates out the components that interact with that cloud platform from components that only interact with the cluster
 - etcd - distributed key-value storage: stores info about all the objects in a Kubernetes system: services, pods, etc.
+
+## CLI Commands
+
+### Minikube
+
+- `minikube start` - starts the minikube cluster (docker is the default value, --driver flag enables you [to select multiple supported drivers](https://minikube.sigs.k8s.io/docs/drivers/))
+
+- `minikube status` - check the status of the minikube cluster
+
+- `minikube ip` - retreives the IP address of the specific node
+
+- `minikube ssh` - log into the minikube environment (for debugging)
+
+### kubectl
+
+- `kubectl cluster-info` - display the address of the control plane and cluster services
+
+- `kubectl get nodes` - list available nodes on the cluster
+
+- `kubectl get pods` - check the available pods in the cluster on the default namespace (--namespace \[namespace\] enables to check the pods under the namespace scope)
+
+- `kubectl get namespaces` - list available namespaces in the cluster
+
+- `kubectl run NAME --image=image` - creates a single pod, with name NAME and the image for the container to run
