@@ -1,0 +1,8 @@
+# go build output
+bin/
+
+# Git metadata
+.git/
+
+# sensitive configuration
+*.env
