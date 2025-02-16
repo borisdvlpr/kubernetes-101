@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: k8s-web
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: k8s-web
   ports:
@@ -33,3 +33,22 @@ spec:
             cpu: "250m"
         ports:
         - containerPort: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: k8s-web-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: k8s-web
+            port:
+              number: 8080
