@@ -11,7 +11,10 @@ If you'd rather not use Devbox, you can manually install the dependencies listed
 
 ## Examples
 
+> **Note:** The tutorials below are coupled and designed to build upon each other. It's recommended to follow them in the order presented.
+
 - [K8S Introduction](/k8s-intro/)
+- [GitOps with ArgoCD](/gitops-argocd/)
 
 ## Resouces
 
