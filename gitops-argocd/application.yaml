@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: k8s-web.application
+  name: k8s-web-application
   namespace: argocd
 spec:
   project: default
