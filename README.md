@@ -20,7 +20,9 @@ If you'd rather not use Devbox, you can manually install the dependencies listed
 
 Some of the content in this repo was sourced from:
 
-- [Kubernetes Documentation](https://kubernetes.io.docs)
-- [Kind Documentation](https://kind.sigs.k8s.io/)
+- [ArgoCD Documentation](https://argo-cd.readthedocs.io/en/stable/getting_started/)
 - [Bogdan Stashchuk's Kubernetes Course](https://www.youtube.com/watch?v=d6WC5n9G_sM)
 - [DevOps Directive's Complete Kubernetes Course](https://www.youtube.com/watch?v=2T86xAtR6Fo&t=3095s)
+- [Kind Documentation](https://kind.sigs.k8s.io/)
+- [Kubernetes Documentation](https://kubernetes.io.docs)
+- [TechWorld with Nana's ArgoCD Tutorial](https://youtu.be/MeU5_k9ssrs?si=FpEKXErda20c-MWz)
